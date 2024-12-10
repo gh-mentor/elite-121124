@@ -1,4 +1,4 @@
- ## Welcome to GitHub Copilot for QA Professionals training
+ ## GitHub Copilot for QA Professionals training
 
 Instructor: Andrew Scoppa
 
