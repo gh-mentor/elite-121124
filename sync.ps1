@@ -8,13 +8,13 @@
 git pull origin main
 
 # Stage all changes
+
 git add .
 
-# Commit changes with a message 'Update'
-git commit -m "Update"
+# Commit changes with message 'Updated'
+
+git commit -m "Updated"
 
 # Push changes to remote repository on branch 'main'
-git push origin main
 
-# Echo message to indicate that the script has finished running
-echo "Sync complete"
+git push origin main

@@ -2,7 +2,7 @@
 This file contains a script of Transact SQL (T-SQL) command to interact with a database named 'Inventory'.
 Requirements:
 - referential integrity is enforced
-Details:
+Steps:
 - Check if the database 'Inventory' exists, if it does exist, drop it and create a new one.
 - Set the default database to 'Inventory'.
 - Create a 'suppliers' table. Use the following columns:
@@ -34,5 +34,45 @@ Details:
 - Create a function that returns the total number of products in a category.
 - Create a function that returns the total number of products supplied by a supplier.
 */
+
+-- Check if the database 'Inventory' exists, if it does exist, drop it and create a new one.
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Inventory')
+BEGIN
+    ALTER DATABASE Inventory SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE Inventory;
+END
+
+CREATE DATABASE Inventory;
+GO
+
+-- Set the default database to 'Inventory'.
+USE Inventory;
+GO
+
+-- Create a 'suppliers' table.
+CREATE TABLE suppliers (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    address VARCHAR(255),
+    city VARCHAR(50) NOT NULL,
+    state CHAR(2) NOT NULL,
+    -- add a created_at column to track the creation date
+    created_at DATETIME DEFAULT GETDATE(),
+    -- add an updated_at column to track the last update date
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+-- Create the 'categories' table with a one-to-many relation to the 'suppliers'.
+CREATE TABLE categories (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    description VARCHAR(255),
+    supplier_id INT,
+    FOREIGN KEY (supplier_id) REFERENCES suppliers(id),
+    -- add a created_at column to track the creation date
+    created_at DATETIME DEFAULT GETDATE(),
+    -- add an updated_at column to track the last update date
+    updated_at DATETIME DEFAULT GETDATE()
+);
 
 

@@ -1,4 +1,4 @@
-﻿/*
+/*
 This code generates random data points based on a given function and plots them using OxyPlot.
 You can install the required packages using NuGet Package Manager:
 dotnet add package MathNet.Numerics
@@ -6,11 +6,11 @@ dotnet add package OxyPlot.Core
 dotnet add package OxyPlot.WindowsForms
 */
 
-sing System;
-using System.Collections.Generic;
-using MathNet.Numerics.Distributions;
-using OxyPlot;
-using OxyPlot.Series;
+using System;                           // this namespace contains the Random class and the Math class
+using System.Collections.Generic;       // this namespace contains the List class 
+using MathNet.Numerics.Distributions;   // this namespace contains the Normal class
+using OxyPlot;                          // this namespace contains the PlotModel class
+using OxyPlot.Series;                   // this namespace contains the ScatterSeries class 
 
 public class DataGenerator
 {
