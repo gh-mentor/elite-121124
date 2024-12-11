@@ -9,11 +9,11 @@ git pull origin main
 
 # Stage all changes
 
-git add .
+git stage .
 
 # Commit changes with message 'Updated'
 
-git commit -m "Updated"
+git commit -m "Synced"
 
 # Push changes to remote repository on branch 'main'
 
